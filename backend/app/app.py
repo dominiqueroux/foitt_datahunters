@@ -20,13 +20,13 @@ class HelloWorld(Resource):
     def get(self):
         return {'hello': 'rorld'}
 
-# @api.route("/ask", methods=['GET'])
-# class AskToValueNet():
-#     def return_test(self):
-#         if 'id' in request.args:
-#             id = int(request.args['id'])
-#         else:
-#             return "Error: No id field provided. Please specify an id."
+@api.route("/ask", methods=['GET'])
+class AskToValueNet(Resource):
+    def get(self):
+        if 'id' in request.args:
+            id = int(request.args['id'])
+        else:
+            return "Error: No id field provided. Please specify an id."
 
 if __name__ == '__main__':
     app.run(debug=True,host="0.0.0.0")
