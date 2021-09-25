@@ -1,4 +1,4 @@
-package com.example.frontend
+package ch.foitt.datahunter
 
 import io.flutter.embedding.android.FlutterActivity
 

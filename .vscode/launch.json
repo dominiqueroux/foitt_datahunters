@@ -5,12 +5,14 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "frontend",
+            "name": "app",
+            "cwd": "frontend/app",
             "request": "launch",
             "type": "dart"
         },
         {
-            "name": "frontend (profile mode)",
+            "name": "app (profile mode)",
+            "cwd": "frontend/app",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
