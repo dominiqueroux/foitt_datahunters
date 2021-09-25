@@ -3,3 +3,4 @@ flask_restplus==0.13.0
 Flask==2.0.1
 SQLAlchemy
 psycopg2-binary
+requests
