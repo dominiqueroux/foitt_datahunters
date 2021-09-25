@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'dart:convert' as convert;
+import 'package:http/http.dart' as http;
 
 void main() {
   runApp(const MyApp());
@@ -47,6 +49,36 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
+Future<String> queryHostedValuenet(String valuenetQuery) async {
+  var url = Uri.parse(
+      'https://inference.hackzurich2021.hack-with-admin.ch/api/question/hack_zurich');
+
+  var headers = {
+    'Content-Type': 'application/json',
+    "X-API-KEY": "sjNmaCtviYzXWlS"
+  };
+
+  final body = {"question": valuenetQuery};
+
+  var response = await http.put(
+    url,
+    headers: headers,
+    body: convert.jsonEncode(body), // use jsonEncode()
+  );
+
+  if (response.statusCode == 200) {
+    return response.body;
+  } else {
+    throw Exception('Failed to interact with API');
+  }
+}
+
+void test_query() async {
+  String response = await queryHostedValuenet(
+      "What is the share of electric cars in 2016 for Wetzikon?");
+  print(response);
+}
+
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
@@ -63,6 +95,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    test_query();
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
@@ -96,7 +129,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              'You have pushed the button this many times:',
+              'Click the button to query the ValueNet API (check console output)',
             ),
             Text(
               '$_counter',
