@@ -6,7 +6,7 @@ services:
     ports: 
       - 5000:5000
     links: 
-      - "postgres:database"
+      - postgres
   postgres:
     image: postgres:13
     environment:

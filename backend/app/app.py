@@ -17,7 +17,7 @@ api = Api(app)
 @api.route('/hello')
 class HelloWorld(Resource):
     def get(self):
-        return {'hello': 'world'}
+        return {'hello': 'rorld'}
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True,host="0.0.0.0")
