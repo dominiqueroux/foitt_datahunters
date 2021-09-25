@@ -5,7 +5,7 @@ services:
       - ./backend/app:/app
     ports: 
       - 5000:5000
- frontend:
+  frontend:
     build: ./frontend/.
     volumes:
       - ./frontend/app:/home/user/app
