@@ -75,9 +75,15 @@ class AskToValueNet(Resource):
 
         if r.status_code == 200:
             resultproxy = connection.execute(r.json()["sql"])
-            return [{column: value for column, value in rowproxy.items()} for rowproxy in resultproxy]
+            response = flask.jsonify([{column: value for column, value in rowproxy.items()} for rowproxy in resultproxy])
+            response.headers.add('Access-Control-Allow-Origin', '*')
+            return response
+
         else:
-            return {"error" : r.status_code}
+            print("error", r.status_code)
+            response = flask.jsonify({"error" : r.status_code})
+            response.headers.add('Access-Control-Allow-Origin', '*')
+            return response
 
 if __name__ == '__main__':
     app.run(debug=True,host="0.0.0.0")
