@@ -23,16 +23,16 @@ services:
     links:
       - postgres
 
-  valuenet:
-    image: ursinbrunner/valuenet-inference-hack-zurich:1.0 
-    runtime: nvidia
-    environment:
-      API_KEY: 'sjNmaCtviYzXWlS'
-      DB_USER: hack_zurich
-      DB_PW: hack_zurich
-      DB_HOST: postgres
-      DB_SCHEMA: public
-      DB_PORT: '5432'
-      NER_API_SECRET: 'YOUR_API_TOKEN_HERE'
-    ports:
-      - 5000:5000 
+  # valuenet:
+  #   image: ursinbrunner/valuenet-inference-hack-zurich:1.0 
+  #   runtime: nvidia
+  #   environment:
+  #     API_KEY: 'sjNmaCtviYzXWlS'
+  #     DB_USER: hack_zurich
+  #     DB_PW: hack_zurich
+  #     DB_HOST: postgres
+  #     DB_SCHEMA: public
+  #     DB_PORT: '5432'
+  #     NER_API_SECRET: 'YOUR_API_TOKEN_HERE'
+  #   ports:
+  #     - 5000:5000 

@@ -3,6 +3,7 @@ from flask.scaffold import _endpoint_from_view_func
 from werkzeug.utils import cached_property
 
 import flask
+from flask import request
 
 flask.helpers._endpoint_from_view_func = _endpoint_from_view_func
 
@@ -18,6 +19,14 @@ api = Api(app)
 class HelloWorld(Resource):
     def get(self):
         return {'hello': 'world'}
+
+# @api.route("/ask", methods=['GET'])
+# class AskToValueNet():
+#     def return_test(self):
+#         if 'id' in request.args:
+#             id = int(request.args['id'])
+#         else:
+#             return "Error: No id field provided. Please specify an id."
 
 if __name__ == '__main__':
     app.run(debug=True)
