@@ -25,12 +25,20 @@ api = Api(app)
 #app.secret_key = 'secret string'
 #db = SQLAlchemy(app)
 
-DB_USER = 'hack_zurich'
-DB_PW = 'hack_zurich'
-DB_HOST = 'postgres'
+# DB_USER = 'hack_zurich'
+# DB_PW = 'hack_zurich'
+# DB_HOST = 'postgres'
+# DB_PORT = '5432'
+# DB_SCHEMA = 'hack_zurich'
+# DB = 'hack_zurich'
+# DRIVERNAME = "postgresql"
+
+DB_USER = 'datahunteradmin@foittdatahuntersdb'
+DB_PW = 'foitt2509_'
+DB_HOST = 'foittdatahuntersdb.postgres.database.azure.com'
 DB_PORT = '5432'
-DB_SCHEMA = 'hack_zurich'
-DB = 'hack_zurich'
+DB_SCHEMA = 'postgres'
+DB = 'postgres'
 DRIVERNAME = "postgresql"
 
 engine = sqlalchemy.create_engine(
