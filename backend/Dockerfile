@@ -6,4 +6,4 @@ VOLUME ["/app"]
 WORKDIR /app
 RUN pip install pipenv
 ENTRYPOINT [ "bash" ]
-CMD ["bootstrap.sh"] 
+CMD ["/app/bootstrap.sh"] 
