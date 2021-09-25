@@ -61,8 +61,9 @@ class HelloWorld(Resource):
     def get(self):
         return {'hello': 'borld'}
 
-@api.route("/ask", methods=['GET'])
-class AskToValueNet(Resource):
+
+@api.route("/ask-extended", methods=['GET'])
+class AskExtendedToValueNet(Resource):
     def get(self):
         if 'question' in request.args:
             question = request.args['question']
