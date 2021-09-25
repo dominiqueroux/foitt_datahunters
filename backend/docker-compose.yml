@@ -5,26 +5,26 @@ services:
       - ./app:/app
     ports: 
       - 5000:5000
-    links: 
-      - postgres
-  postgres:
-    image: postgres:13
-    environment:
-      POSTGRES_DB: hack_zurich
-      POSTGRES_USER: hack_zurich
-      POSTGRES_PASSWORD: hack_zurich
-    stdin_open: true # docker run -i
-    tty: true        # docker run -t
-    ports:
-      - 5432:5432
-    volumes:
-      - ./data/hack_zurich:/var/dumps
-      - ./data/hack_zurich/2021-09-20-hack_zurich.sql:/docker-entrypoint-initdb.d/2021-09-20-hack_zurich.sql
+  # links: 
+  #   - postgres
+  # postgres:
+  #   image: postgres:13
+  #   environment:
+  #     POSTGRES_DB: hack_zurich
+  #     POSTGRES_USER: hack_zurich
+  #     POSTGRES_PASSWORD: hack_zurich
+  #   stdin_open: true # docker run -i
+  #   tty: true        # docker run -t
+  #   ports:
+  #     - 5432:5432
+  #   volumes:
+  #     - ./data/hack_zurich:/var/dumps
+  #     - ./data/hack_zurich/2021-09-20-hack_zurich.sql:/docker-entrypoint-initdb.d/2021-09-20-hack_zurich.sql
 
-  adminer:
-    image: adminer:4.8.1
-    ports:
-      - 8080:8080
-    links:
-      - postgres
+  # adminer:
+  #   image: adminer:4.8.1
+  #   ports:
+  #     - 8080:8080
+  #   links:
+  #     - postgres
 
