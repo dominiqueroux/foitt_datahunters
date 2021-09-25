@@ -18,7 +18,7 @@ api = Api(app)
 @api.route('/hello')
 class HelloWorld(Resource):
     def get(self):
-        return {'hello': 'rorld'}
+        return {'hello': 'borld'}
 
 @api.route("/ask", methods=['GET'])
 class AskToValueNet(Resource):
