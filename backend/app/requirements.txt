@@ -1,6 +1,6 @@
-Werkzeug==2.0.1
-flask_restplus==0.13.0
-Flask==2.0.1
+Werkzeug
+flask_restplus
+Flask
 SQLAlchemy
 psycopg2-binary
 requests
