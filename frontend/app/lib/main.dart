@@ -184,7 +184,7 @@ class _MyAppState extends State<MyApp> {
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('ValueNet DEMO by team-name'),
+          title: const Text('ValueNet DEMO by Open DataHunters'),
         ),
         body: Column(
           children: [
@@ -205,6 +205,7 @@ class _MyAppState extends State<MyApp> {
                             decoration: const InputDecoration(
                               hintText:
                                   "Enter Question, for example: What is the share of electric cars in 2017 for Kloten?",
+                              border: OutlineInputBorder(),
                             ),
                           ),
                           ElevatedButton(
@@ -244,6 +245,7 @@ class _MyAppState extends State<MyApp> {
                             decoration: const InputDecoration(
                               hintText:
                                   "Enter Question, for example: What is the share of electric cars in 2017 for Kloten?",
+                              border: OutlineInputBorder(),
                             ),
                           ),
                           ElevatedButton(
