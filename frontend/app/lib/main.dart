@@ -61,10 +61,6 @@ Future<SQLResponse> fetchSQLResponse() async {
 }
 
 Future<ValueNetResponse> fetchValueNetResponse() async {
-  final response = await http.get(
-    Uri.parse('https://jsonplaceholder.typicode.com/ValueNetResponses/1'),
-  );
-
   return ValueNetResponse(
       beams: "",
       potential_values_found_in_db: "",
@@ -84,7 +80,7 @@ Future<ValueNetResponse> updateValueNetResponse_FOITT(String query) async {
     "X-API-KEY": "sjNmaCtviYzXWlS"
   };
   if (query == "") {
-    query = "What is the share of electric cars in 2017 for Kloten?";
+    query = "What is the share of electric cars in 2016 for Wetzikon?";
   }
   // String query_hardcoded = "What is the share of electric cars in 2016 for Wetzikon?";
 
@@ -112,7 +108,7 @@ Future<ValueNetResponse> updateValueNetResponse_team(String query) async {
     'Content-Type': 'text/plain',
   };
   if (query == "") {
-    query = "What is the share of electric cars in 2017 for Kloten?";
+    query = "What is the share of electric cars in 2016 for Wetzikon?";
   }
 
   final uri = 'http://localhost:5000' + '/ask?question=' + query;
@@ -229,7 +225,7 @@ class _MyAppState extends State<MyApp> {
                             controller: _valuenet_controller,
                             decoration: const InputDecoration(
                               hintText:
-                                  "Enter Question, for example: What is the share of electric cars in 2017 for Kloten?",
+                                  "What is the share of electric cars in 2016 for Wetzikon?",
                               border: OutlineInputBorder(),
                             ),
                           ),
@@ -269,7 +265,7 @@ class _MyAppState extends State<MyApp> {
                             controller: _sql_controller,
                             decoration: const InputDecoration(
                               hintText:
-                                  "Enter Question, for example: What is the share of electric cars in 2017 for Kloten?",
+                                  "Enter Question, for example: What is the share of electric cars in 2016 for Wetzikon?",
                               border: OutlineInputBorder(),
                             ),
                           ),
