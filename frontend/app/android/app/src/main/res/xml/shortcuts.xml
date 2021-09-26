@@ -1,0 +1,13 @@
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+  <capability android:name="actions.intent.GET_THING">
+    <intent
+      android:action="android.intent.action.VIEW"
+      android:targetPackage="ch.foitt.datahunter"
+      android:targetClass="ch.foitt.datahunter.MainActivity">
+      <!-- Eg. name = "Running shoes" -->
+      <parameter
+        android:name="thing.name"
+        android:key="query"/>
+    </intent>
+  </capability>
+</shortcuts>
