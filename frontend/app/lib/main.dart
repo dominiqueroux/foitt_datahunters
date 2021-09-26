@@ -188,7 +188,7 @@ class _MyAppState extends State<MyApp> {
 
     setState(() {
       _voiceQuery = voiceQuery;
-      _controller.text = _voiceQuery;
+      _valuenet_controller.text = _voiceQuery;
     });
   }
 
