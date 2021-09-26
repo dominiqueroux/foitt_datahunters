@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 
 import 'dart:async';
@@ -60,6 +61,10 @@ Future<SQLResponse> fetchSQLResponse() async {
 }
 
 Future<ValueNetResponse> fetchValueNetResponse() async {
+  final response = await http.get(
+    Uri.parse('https://jsonplaceholder.typicode.com/ValueNetResponses/1'),
+  );
+
   return ValueNetResponse(
       beams: "",
       potential_values_found_in_db: "",
@@ -167,12 +172,32 @@ class _MyAppState extends State<MyApp> {
 
   late Future<ValueNetResponse> _futureValueNetResponse;
   late Future<SQLResponse> _futureSQLResponse;
+  static const platform = MethodChannel('voiceQuery');
+
+  String _voiceQuery = '';
+
+  void _getVoiceQuery() async {
+    String voiceQuery;
+    try {
+      final String result =
+          await platform.invokeMethod('voiceQueryAssistantCheck');
+      voiceQuery = result;
+    } on PlatformException catch (e) {
+      voiceQuery = '';
+    }
+
+    setState(() {
+      _voiceQuery = voiceQuery;
+      _controller.text = _voiceQuery;
+    });
+  }
 
   @override
   void initState() {
     super.initState();
     _futureValueNetResponse = fetchValueNetResponse();
     _futureSQLResponse = fetchSQLResponse();
+    _getVoiceQuery();
   }
 
   @override
